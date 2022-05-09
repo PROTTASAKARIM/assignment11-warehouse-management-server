@@ -41,6 +41,11 @@ async function run() {
             const inventory = await inventoryItems.findOne(query);
             res.send(inventory);
         });
+        app.post('/inventory', async (req, res) => {
+            const newPhone = req.body;
+            const result = await inventoryItems.insertOne(newPhone);
+            res.send(result);
+        });
 
         app.put('/inventory/:inventoryId', async (req, res) => {
             const id = req.params.inventoryId;
