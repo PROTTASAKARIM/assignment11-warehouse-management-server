@@ -49,7 +49,7 @@ async function run() {
 
         app.put('/inventory/:inventoryId', async (req, res) => {
             const id = req.params.inventoryId;
-            const updatedQuantity = res.body;
+            const updatedQuantity = req.body;
             const query = { _id: ObjectId(id) };
             const options = { upsert: true };
             const updateNewQuantity = {
